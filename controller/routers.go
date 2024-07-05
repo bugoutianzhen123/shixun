@@ -22,6 +22,7 @@ func (cont *service) InitServer() error {
 		UserGroup.POST("/changeusername", cont.con.ChangeUserName)
 		UserGroup.POST("/changepermission", cont.con.ChangeUserPermission)
 		UserGroup.GET("/getinfo", cont.con.GetUserById)
+		UserGroup.GET("/refreshHandler", cont.con.RefreshHandler) //刷新token
 	}
 
 	err := r.Run(":8088")
