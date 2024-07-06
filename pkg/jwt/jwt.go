@@ -2,7 +2,6 @@ package jwt
 
 import (
 	"errors"
-	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/spf13/viper"
 	"time"
@@ -37,8 +36,7 @@ func GenerateToken(id uint, permission uint) (string, error) {
 }
 
 // ParseToken 获取并解析token
-func ParseToken(c *gin.Context) (JwtCustomClaims, error) {
-	tokenStr := c.GetHeader("Authorization")
+func ParseToken(tokenStr string) (JwtCustomClaims, error) {
 	// 声明一个空的数据声明
 	iJwtCustomClaims := JwtCustomClaims{}
 	//ParseWithClaims是NewParser().ParseWithClaims()的快捷方式

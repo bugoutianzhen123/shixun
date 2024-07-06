@@ -4,6 +4,7 @@ import "project/repository"
 
 type Server interface {
 	UserServer
+	ItemServer
 }
 
 type server struct {

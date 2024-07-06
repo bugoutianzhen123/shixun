@@ -45,7 +45,8 @@ func (s *controller) CreateUser(c *gin.Context) {
 				response.FailMsg(c, "创建用户失败")
 				return
 			}
-
+			response.Ok(c)
+			return
 		} else {
 			// 其他查询错误
 			fmt.Printf("查询错误: %s\n", err.Error())
@@ -60,7 +61,8 @@ func (s *controller) CreateUser(c *gin.Context) {
 }
 
 func (s *controller) GetUserById(c *gin.Context) {
-	msg, err := lojwt.ParseToken(c)
+	tokenStr := c.GetHeader("Authorization")
+	msg, err := lojwt.ParseToken(tokenStr)
 	if err != nil {
 		response.FailMsg(c, "token解析失败")
 		return
@@ -77,9 +79,10 @@ func (s *controller) GetUserById(c *gin.Context) {
 }
 
 func (s *controller) ChangeUserName(c *gin.Context) {
-	msg, err := lojwt.ParseToken(c)
+	tokenStr := c.GetHeader("Authorization")
+	msg, err := lojwt.ParseToken(tokenStr)
 	if err != nil {
-		response.FailMsg(c, "token解析失败")
+		response.FailMsg(c, fa)
 		return
 	}
 
@@ -100,7 +103,8 @@ func (s *controller) ChangeUserName(c *gin.Context) {
 }
 
 func (s *controller) ChangeUserPassword(c *gin.Context) {
-	msg, err := lojwt.ParseToken(c)
+	tokenStr := c.GetHeader("Authorization")
+	msg, err := lojwt.ParseToken(tokenStr)
 	if err != nil {
 		response.FailMsg(c, "token解析失败")
 		return
@@ -118,18 +122,13 @@ func (s *controller) ChangeUserPassword(c *gin.Context) {
 		return
 	}
 
-	prepassword, err := bcrypt.GenerateFromPassword([]byte(usermsg.prepassword), bcrypt.DefaultCost)
+	err = bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(usermsg.Prepassword))
 	if err != nil {
-		response.FailMsg(c, "加密失败")
-		return
-	}
-
-	if string(prepassword) != user.Password {
 		response.FailMsg(c, "原密码错误")
 		return
 	}
 
-	newpassword, err := bcrypt.GenerateFromPassword([]byte(usermsg.newpassword), bcrypt.DefaultCost)
+	newpassword, err := bcrypt.GenerateFromPassword([]byte(usermsg.Newpassword), bcrypt.DefaultCost)
 	if err != nil {
 		response.FailMsg(c, "加密失败")
 		return
@@ -146,7 +145,8 @@ func (s *controller) ChangeUserPassword(c *gin.Context) {
 }
 
 func (s *controller) ChangeUserPermission(c *gin.Context) {
-	msg, err := lojwt.ParseToken(c)
+	tokenStr := c.GetHeader("Authorization")
+	msg, err := lojwt.ParseToken(tokenStr)
 	if err != nil {
 		response.FailMsg(c, "token解析失败")
 		return
@@ -170,8 +170,12 @@ func (s *controller) ChangeUserPermission(c *gin.Context) {
 
 func (s *controller) LoginUser(c *gin.Context) {
 	var user usermsg
-	c.ShouldBindJSON(&user)
-	u, err := s.ser.GetUserByName(user.name)
+	if err := c.ShouldBindJSON(&user); err != nil {
+		response.FailMsg(c, "获取用户信息失败")
+		return
+	}
+	fmt.Println(user)
+	u, err := s.ser.GetUserByName(user.Name)
 	if err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			// 没有找到匹配的记录
@@ -183,8 +187,10 @@ func (s *controller) LoginUser(c *gin.Context) {
 			return
 		}
 	}
+	fmt.Println(u.Password)
+	fmt.Println(user.Password)
 
-	err = bcrypt.CompareHashAndPassword([]byte(u.Password), []byte(user.password))
+	err = bcrypt.CompareHashAndPassword([]byte(u.Password), []byte(user.Password))
 	if err != nil {
 		response.FailMsg(c, "密码错误")
 		return
@@ -202,7 +208,8 @@ func (s *controller) LoginUser(c *gin.Context) {
 }
 
 func (s *controller) RefreshHandler(c *gin.Context) {
-	claims, err := lojwt.ParseToken(c)
+	tokenStr := c.GetHeader("Authorization")
+	claims, err := lojwt.ParseToken(tokenStr)
 	if err != nil {
 		response.FailMsg(c, "解析失败")
 		return
@@ -226,8 +233,8 @@ func (s *controller) RefreshHandler(c *gin.Context) {
 }
 
 type usermsg struct {
-	name        string `json:"name"`
-	password    string `json:"password"`
-	prepassword string `json:"prepassword"`
-	newpassword string `json:"newPassword"`
+	Name        string `json:"username"`
+	Password    string `json:"password"`
+	Prepassword string `json:"prepassword"`
+	Newpassword string `json:"newPassword"`
 }

@@ -7,6 +7,7 @@ import (
 
 type DAO interface {
 	UserDao
+	ItemDao
 }
 
 type GORMDAO struct {
@@ -20,6 +21,9 @@ func InitTables(db *gorm.DB) error {
 	db.AutoMigrate(domain.Inventory{})
 	db.AutoMigrate(domain.InboundRecord{})
 	db.AutoMigrate(domain.OutboundRecord{})
+
+	db.Exec("ALTER TABLE inventories ADD CONSTRAINT check_number CHECK (number >= 0)")
+	//db.Exec()
 
 	return db.Error
 }

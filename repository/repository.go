@@ -8,6 +8,7 @@ import (
 
 type Repository interface {
 	User
+	Item
 }
 
 type CachedDaoRepository struct {

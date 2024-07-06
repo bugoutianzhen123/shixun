@@ -5,6 +5,12 @@ import (
 	"project/server"
 )
 
+const (
+	nop = "权限不足"
+	fc  = "创建失败"
+	fa  = "解析失败"
+)
+
 type Controller interface {
 	User
 }

@@ -8,3 +8,9 @@ type User struct {
 	Password   string `json:"password"`
 	Permission uint   `json:"permission" gorm:"default:1"` // 0 :high    1 :low
 }
+
+type Usermsg struct {
+	ID         uint
+	Name       string
+	Permission uint
+}

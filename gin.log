@@ -1,0 +1,200 @@
+[GIN-debug] POST   /user/register            --> project/controller.User.CreateUser-fm (3 handlers)
+[GIN-debug] POST   /user/login               --> project/controller.User.LoginUser-fm (3 handlers)
+[GIN-debug] POST   /user/changepassword      --> project/controller.User.ChangeUserPassword-fm (3 handlers)
+[GIN-debug] POST   /user/changeusername      --> project/controller.User.ChangeUserName-fm (3 handlers)
+[GIN-debug] POST   /user/changepermission    --> project/controller.User.ChangeUserPermission-fm (3 handlers)
+[GIN-debug] GET    /user/getinfo             --> project/controller.User.GetUserById-fm (3 handlers)
+[GIN-debug] GET    /user/refreshHandler      --> project/controller.User.RefreshHandler-fm (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8088
+[GIN-debug] POST   /user/register            --> project/controller.User.CreateUser-fm (3 handlers)
+[GIN-debug] POST   /user/login               --> project/controller.User.LoginUser-fm (3 handlers)
+[GIN-debug] POST   /user/changepassword      --> project/controller.User.ChangeUserPassword-fm (3 handlers)
+[GIN-debug] POST   /user/changeusername      --> project/controller.User.ChangeUserName-fm (3 handlers)
+[GIN-debug] POST   /user/changepermission    --> project/controller.User.ChangeUserPermission-fm (3 handlers)
+[GIN-debug] GET    /user/getinfo             --> project/controller.User.GetUserById-fm (3 handlers)
+[GIN-debug] GET    /user/refreshHandler      --> project/controller.User.RefreshHandler-fm (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8088
+[GIN-debug] POST   /user/register            --> project/controller.User.CreateUser-fm (3 handlers)
+[GIN-debug] POST   /user/login               --> project/controller.User.LoginUser-fm (3 handlers)
+[GIN-debug] POST   /user/changepassword      --> project/controller.User.ChangeUserPassword-fm (3 handlers)
+[GIN-debug] POST   /user/changeusername      --> project/controller.User.ChangeUserName-fm (3 handlers)
+[GIN-debug] POST   /user/changepermission    --> project/controller.User.ChangeUserPermission-fm (3 handlers)
+[GIN-debug] GET    /user/getinfo             --> project/controller.User.GetUserById-fm (3 handlers)
+[GIN-debug] GET    /user/refreshHandler      --> project/controller.User.RefreshHandler-fm (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8088
+[GIN-debug] POST   /user/register            --> project/controller.User.CreateUser-fm (3 handlers)
+[GIN-debug] POST   /user/login               --> project/controller.User.LoginUser-fm (3 handlers)
+[GIN-debug] POST   /user/changepassword      --> project/controller.User.ChangeUserPassword-fm (3 handlers)
+[GIN-debug] POST   /user/changeusername      --> project/controller.User.ChangeUserName-fm (3 handlers)
+[GIN-debug] POST   /user/changepermission    --> project/controller.User.ChangeUserPermission-fm (3 handlers)
+[GIN-debug] GET    /user/getinfo             --> project/controller.User.GetUserById-fm (3 handlers)
+[GIN-debug] GET    /user/refreshHandler      --> project/controller.User.RefreshHandler-fm (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8088
+[GIN-debug] POST   /user/register            --> project/controller.User.CreateUser-fm (3 handlers)
+[GIN-debug] POST   /user/login               --> project/controller.User.LoginUser-fm (3 handlers)
+[GIN-debug] POST   /user/changepassword      --> project/controller.User.ChangeUserPassword-fm (3 handlers)
+[GIN-debug] POST   /user/changeusername      --> project/controller.User.ChangeUserName-fm (3 handlers)
+[GIN-debug] POST   /user/changepermission    --> project/controller.User.ChangeUserPermission-fm (3 handlers)
+[GIN-debug] GET    /user/getinfo             --> project/controller.User.GetUserById-fm (3 handlers)
+[GIN-debug] GET    /user/refreshHandler      --> project/controller.User.RefreshHandler-fm (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8088
+[GIN-debug] POST   /user/register            --> project/controller.User.CreateUser-fm (3 handlers)
+[GIN-debug] POST   /user/login               --> project/controller.User.LoginUser-fm (3 handlers)
+[GIN-debug] POST   /user/changepassword      --> project/controller.User.ChangeUserPassword-fm (3 handlers)
+[GIN-debug] POST   /user/changeusername      --> project/controller.User.ChangeUserName-fm (3 handlers)
+[GIN-debug] POST   /user/changepermission    --> project/controller.User.ChangeUserPermission-fm (3 handlers)
+[GIN-debug] GET    /user/getinfo             --> project/controller.User.GetUserById-fm (3 handlers)
+[GIN-debug] GET    /user/refreshHandler      --> project/controller.User.RefreshHandler-fm (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8088
+[GIN-debug] POST   /user/register            --> project/controller.User.CreateUser-fm (3 handlers)
+[GIN-debug] POST   /user/login               --> project/controller.User.LoginUser-fm (3 handlers)
+[GIN-debug] POST   /user/changepassword      --> project/controller.User.ChangeUserPassword-fm (3 handlers)
+[GIN-debug] POST   /user/changeusername      --> project/controller.User.ChangeUserName-fm (3 handlers)
+[GIN-debug] POST   /user/changepermission    --> project/controller.User.ChangeUserPermission-fm (3 handlers)
+[GIN-debug] GET    /user/getinfo             --> project/controller.User.GetUserById-fm (3 handlers)
+[GIN-debug] GET    /user/refreshHandler      --> project/controller.User.RefreshHandler-fm (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8088
+[GIN-debug] POST   /user/register            --> project/controller.User.CreateUser-fm (3 handlers)
+[GIN-debug] POST   /user/login               --> project/controller.User.LoginUser-fm (3 handlers)
+[GIN-debug] POST   /user/changepassword      --> project/controller.User.ChangeUserPassword-fm (3 handlers)
+[GIN-debug] POST   /user/changeusername      --> project/controller.User.ChangeUserName-fm (3 handlers)
+[GIN-debug] POST   /user/changepermission    --> project/controller.User.ChangeUserPermission-fm (3 handlers)
+[GIN-debug] GET    /user/getinfo             --> project/controller.User.GetUserById-fm (3 handlers)
+[GIN-debug] GET    /user/refreshHandler      --> project/controller.User.RefreshHandler-fm (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8088
+[GIN-debug] POST   /user/register            --> project/controller.User.CreateUser-fm (3 handlers)
+[GIN-debug] POST   /user/login               --> project/controller.User.LoginUser-fm (3 handlers)
+[GIN-debug] POST   /user/changepassword      --> project/controller.User.ChangeUserPassword-fm (3 handlers)
+[GIN-debug] POST   /user/changeusername      --> project/controller.User.ChangeUserName-fm (3 handlers)
+[GIN-debug] POST   /user/changepermission    --> project/controller.User.ChangeUserPermission-fm (3 handlers)
+[GIN-debug] GET    /user/getinfo             --> project/controller.User.GetUserById-fm (3 handlers)
+[GIN-debug] GET    /user/refreshHandler      --> project/controller.User.RefreshHandler-fm (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8088
+[GIN-debug] POST   /user/register            --> project/controller.User.CreateUser-fm (3 handlers)
+[GIN-debug] POST   /user/login               --> project/controller.User.LoginUser-fm (3 handlers)
+[GIN-debug] POST   /user/changepassword      --> project/controller.User.ChangeUserPassword-fm (3 handlers)
+[GIN-debug] POST   /user/changeusername      --> project/controller.User.ChangeUserName-fm (3 handlers)
+[GIN-debug] POST   /user/changepermission    --> project/controller.User.ChangeUserPermission-fm (3 handlers)
+[GIN-debug] GET    /user/getinfo             --> project/controller.User.GetUserById-fm (3 handlers)
+[GIN-debug] GET    /user/refreshHandler      --> project/controller.User.RefreshHandler-fm (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8088
+[GIN-debug] POST   /user/register            --> project/controller.User.CreateUser-fm (3 handlers)
+[GIN-debug] POST   /user/login               --> project/controller.User.LoginUser-fm (3 handlers)
+[GIN-debug] POST   /user/changepassword      --> project/controller.User.ChangeUserPassword-fm (3 handlers)
+[GIN-debug] POST   /user/changeusername      --> project/controller.User.ChangeUserName-fm (3 handlers)
+[GIN-debug] POST   /user/changepermission    --> project/controller.User.ChangeUserPermission-fm (3 handlers)
+[GIN-debug] GET    /user/getinfo             --> project/controller.User.GetUserById-fm (3 handlers)
+[GIN-debug] GET    /user/refreshHandler      --> project/controller.User.RefreshHandler-fm (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8088
+[GIN-debug] POST   /user/register            --> project/controller.User.CreateUser-fm (3 handlers)
+[GIN-debug] POST   /user/login               --> project/controller.User.LoginUser-fm (3 handlers)
+[GIN-debug] POST   /user/changepassword      --> project/controller.User.ChangeUserPassword-fm (3 handlers)
+[GIN-debug] POST   /user/changeusername      --> project/controller.User.ChangeUserName-fm (3 handlers)
+[GIN-debug] POST   /user/changepermission    --> project/controller.User.ChangeUserPermission-fm (3 handlers)
+[GIN-debug] GET    /user/getinfo             --> project/controller.User.GetUserById-fm (3 handlers)
+[GIN-debug] GET    /user/refreshHandler      --> project/controller.User.RefreshHandler-fm (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8088
+[GIN-debug] POST   /user/register            --> project/controller.User.CreateUser-fm (3 handlers)
+[GIN-debug] POST   /user/login               --> project/controller.User.LoginUser-fm (3 handlers)
+[GIN-debug] POST   /user/changepassword      --> project/controller.User.ChangeUserPassword-fm (3 handlers)
+[GIN-debug] POST   /user/changeusername      --> project/controller.User.ChangeUserName-fm (3 handlers)
+[GIN-debug] POST   /user/changepermission    --> project/controller.User.ChangeUserPermission-fm (3 handlers)
+[GIN-debug] GET    /user/getinfo             --> project/controller.User.GetUserById-fm (3 handlers)
+[GIN-debug] GET    /user/refreshHandler      --> project/controller.User.RefreshHandler-fm (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8088
+[GIN-debug] POST   /user/register            --> project/controller.User.CreateUser-fm (4 handlers)
+[GIN-debug] POST   /user/login               --> project/controller.User.LoginUser-fm (4 handlers)
+[GIN-debug] POST   /user/changepassword      --> project/controller.User.ChangeUserPassword-fm (4 handlers)
+[GIN-debug] POST   /user/changeusername      --> project/controller.User.ChangeUserName-fm (4 handlers)
+[GIN-debug] POST   /user/changepermission    --> project/controller.User.ChangeUserPermission-fm (4 handlers)
+[GIN-debug] GET    /user/getinfo             --> project/controller.User.GetUserById-fm (4 handlers)
+[GIN-debug] GET    /user/refreshHandler      --> project/controller.User.RefreshHandler-fm (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8088
+[GIN-debug] POST   /user/register            --> project/controller.User.CreateUser-fm (4 handlers)
+[GIN-debug] POST   /user/login               --> project/controller.User.LoginUser-fm (4 handlers)
+[GIN-debug] POST   /user/changepassword      --> project/controller.User.ChangeUserPassword-fm (4 handlers)
+[GIN-debug] POST   /user/changeusername      --> project/controller.User.ChangeUserName-fm (4 handlers)
+[GIN-debug] POST   /user/changepermission    --> project/controller.User.ChangeUserPermission-fm (4 handlers)
+[GIN-debug] GET    /user/getinfo             --> project/controller.User.GetUserById-fm (4 handlers)
+[GIN-debug] GET    /user/refreshHandler      --> project/controller.User.RefreshHandler-fm (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8088
+[GIN-debug] POST   /user/register            --> project/controller.User.CreateUser-fm (4 handlers)
+[GIN-debug] POST   /user/login               --> project/controller.User.LoginUser-fm (4 handlers)
+[GIN-debug] POST   /user/changepassword      --> project/controller.User.ChangeUserPassword-fm (4 handlers)
+[GIN-debug] POST   /user/changeusername      --> project/controller.User.ChangeUserName-fm (4 handlers)
+[GIN-debug] POST   /user/changepermission    --> project/controller.User.ChangeUserPermission-fm (4 handlers)
+[GIN-debug] GET    /user/getinfo             --> project/controller.User.GetUserById-fm (4 handlers)
+[GIN-debug] GET    /user/refreshHandler      --> project/controller.User.RefreshHandler-fm (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8088
+[GIN-debug] POST   /user/register            --> project/controller.User.CreateUser-fm (4 handlers)
+[GIN-debug] POST   /user/login               --> project/controller.User.LoginUser-fm (4 handlers)
+[GIN-debug] POST   /user/changepassword      --> project/controller.User.ChangeUserPassword-fm (4 handlers)
+[GIN-debug] POST   /user/changeusername      --> project/controller.User.ChangeUserName-fm (4 handlers)
+[GIN-debug] POST   /user/changepermission    --> project/controller.User.ChangeUserPermission-fm (4 handlers)
+[GIN-debug] GET    /user/getinfo             --> project/controller.User.GetUserById-fm (4 handlers)
+[GIN-debug] GET    /user/refreshHandler      --> project/controller.User.RefreshHandler-fm (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8088
+[GIN-debug] POST   /user/register            --> project/controller.User.CreateUser-fm (4 handlers)
+[GIN-debug] POST   /user/login               --> project/controller.User.LoginUser-fm (4 handlers)
+[GIN-debug] POST   /user/changepassword      --> project/controller.User.ChangeUserPassword-fm (4 handlers)
+[GIN-debug] POST   /user/changeusername      --> project/controller.User.ChangeUserName-fm (4 handlers)
+[GIN-debug] POST   /user/changepermission    --> project/controller.User.ChangeUserPermission-fm (4 handlers)
+[GIN-debug] GET    /user/getinfo             --> project/controller.User.GetUserById-fm (4 handlers)
+[GIN-debug] GET    /user/refreshHandler      --> project/controller.User.RefreshHandler-fm (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8088
+[GIN-debug] POST   /user/register            --> project/controller.User.CreateUser-fm (4 handlers)
+[GIN-debug] POST   /user/login               --> project/controller.User.LoginUser-fm (4 handlers)
+[GIN-debug] POST   /user/changepassword      --> project/controller.User.ChangeUserPassword-fm (4 handlers)
+[GIN-debug] POST   /user/changeusername      --> project/controller.User.ChangeUserName-fm (4 handlers)
+[GIN-debug] POST   /user/changepermission    --> project/controller.User.ChangeUserPermission-fm (4 handlers)
+[GIN-debug] GET    /user/getinfo             --> project/controller.User.GetUserById-fm (4 handlers)
+[GIN-debug] GET    /user/refreshHandler      --> project/controller.User.RefreshHandler-fm (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8088
+[GIN-debug] POST   /user/register            --> project/controller.User.CreateUser-fm (4 handlers)
+[GIN-debug] POST   /user/login               --> project/controller.User.LoginUser-fm (4 handlers)
+[GIN-debug] POST   /user/changepassword      --> project/controller.User.ChangeUserPassword-fm (4 handlers)
+[GIN-debug] POST   /user/changeusername      --> project/controller.User.ChangeUserName-fm (4 handlers)
+[GIN-debug] POST   /user/changepermission    --> project/controller.User.ChangeUserPermission-fm (4 handlers)
+[GIN-debug] GET    /user/getinfo             --> project/controller.User.GetUserById-fm (4 handlers)
+[GIN-debug] GET    /user/refreshHandler      --> project/controller.User.RefreshHandler-fm (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8088

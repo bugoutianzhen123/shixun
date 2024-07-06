@@ -28,9 +28,9 @@ func (s *server) ChangeUserPassword(user domain.User) error {
 }
 
 func (s *server) ChangeUserName(user domain.User) error {
-	return s.rep.ChangePassword(user)
+	return s.rep.ChangeName(user)
 }
 
 func (s *server) ChangeUserPermission(user domain.User) error {
-	return s.rep.ChangePassword(user)
+	return s.rep.ChangePermission(user)
 }

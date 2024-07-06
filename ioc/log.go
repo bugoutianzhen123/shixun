@@ -28,6 +28,7 @@ func InitLog() logger.Logger {
 	)
 
 	l := zap.New(core, zap.AddCaller())
+
 	res := logger.NewZapLogger(l)
 
 	return res
