@@ -13,7 +13,7 @@ type ServiceStart interface {
 }
 
 type service struct {
-	con User
+	con Controller
 }
 
 func (cont *service) InitServer() error {
@@ -37,6 +37,21 @@ func (cont *service) InitServer() error {
 		UserGroup.POST("/changepermission", cont.con.ChangeUserPermission)
 		UserGroup.GET("/getinfo", cont.con.GetUserById)
 		UserGroup.GET("/refreshHandler", cont.con.RefreshHandler) //刷新token
+	}
+
+	ItemGroup := r.Group("/item")
+	{
+		ItemGroup.POST("/createitem", cont.con.CreateItem)
+		ItemGroup.POST("/createware", cont.con.CreateWarehouser)
+		ItemGroup.POST("/createinb", cont.con.CreateInboundRecord)
+		ItemGroup.POST("/createoutb", cont.con.CreateOutboundRecord)
+		ItemGroup.POST("/deleteitem", cont.con.DeleteItem)
+		ItemGroup.POST("/deleteware", cont.con.DeleteWarehouse)
+		ItemGroup.POST("/getitem", cont.con.FindItem)
+		ItemGroup.POST("/getware", cont.con.FindWarehouse)
+		ItemGroup.POST("/getinb", cont.con.FindInboundRecord)
+		ItemGroup.POST("/getoutb", cont.con.FindOutboundRecord)
+		ItemGroup.POST("/getinven", cont.con.FindInventory)
 	}
 
 	err := r.Run(":8088")

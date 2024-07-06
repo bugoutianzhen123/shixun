@@ -22,6 +22,13 @@ type User interface {
 	RefreshHandler(c *gin.Context)
 }
 
+type usermsg struct {
+	Name        string `json:"username"`
+	Password    string `json:"password"`
+	Prepassword string `json:"prepassword"`
+	Newpassword string `json:"newPassword"`
+}
+
 func (s *controller) CreateUser(c *gin.Context) {
 	var user domain.User
 	if err := c.ShouldBindJSON(&user); err != nil {
@@ -230,11 +237,4 @@ func (s *controller) RefreshHandler(c *gin.Context) {
 
 	response.Ok(c)
 	return
-}
-
-type usermsg struct {
-	Name        string `json:"username"`
-	Password    string `json:"password"`
-	Prepassword string `json:"prepassword"`
-	Newpassword string `json:"newPassword"`
 }
