@@ -14,6 +14,7 @@ type ServiceStart interface {
 
 type service struct {
 	con Controller
+	p   Page
 }
 
 func (cont *service) InitServer() error {
@@ -27,6 +28,13 @@ func (cont *service) InitServer() error {
 		ExposeHeaders:    []string{"Content-Length"},
 		AllowCredentials: true,
 	}))
+
+	r.LoadHTMLGlob("frontend/*")
+
+	HtmlGroup := r.Group("/page")
+	{
+		HtmlGroup.GET("/login", cont.p.Login)
+	}
 
 	UserGroup := r.Group("/user")
 	{
@@ -58,8 +66,8 @@ func (cont *service) InitServer() error {
 	return err
 }
 
-func NewService(con Controller) ServiceStart {
-	return &service{con: con}
+func NewService(con Controller, p Page) ServiceStart {
+	return &service{con: con, p: p}
 }
 
 func initlog(r *gin.Engine) {
