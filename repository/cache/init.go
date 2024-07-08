@@ -1,9 +1,14 @@
 package cache
 
-import "github.com/go-redis/redis"
+import (
+	"github.com/go-redis/redis"
+)
+
+var ErrKeyNotExists = redis.Nil
 
 type CacheRe interface {
-	test()
+	UserCache
+	ItemCache
 }
 
 type RedisCache struct {

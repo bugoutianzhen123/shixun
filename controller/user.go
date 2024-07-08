@@ -36,6 +36,11 @@ func (s *controller) CreateUser(c *gin.Context) {
 		return
 	}
 
+	if user.Name == "" || user.Password == "" {
+		response.FailMsg(c, "用户名/密码不能为空")
+		return
+	}
+
 	if _, err := s.ser.GetUserByName(user.Name); err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			// 没有找到匹配的记录

@@ -232,3 +232,29 @@ Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8088
+[GIN-debug] Loaded HTML Templates (2): 
+	- 
+	- login.html
+
+[GIN-debug] GET    /page/login               --> project/controller.Page.Login-fm (4 handlers)
+[GIN-debug] POST   /user/register            --> project/controller.Controller.CreateUser-fm (4 handlers)
+[GIN-debug] POST   /user/login               --> project/controller.Controller.LoginUser-fm (4 handlers)
+[GIN-debug] POST   /user/changepassword      --> project/controller.Controller.ChangeUserPassword-fm (4 handlers)
+[GIN-debug] POST   /user/changeusername      --> project/controller.Controller.ChangeUserName-fm (4 handlers)
+[GIN-debug] POST   /user/changepermission    --> project/controller.Controller.ChangeUserPermission-fm (4 handlers)
+[GIN-debug] GET    /user/getinfo             --> project/controller.Controller.GetUserById-fm (4 handlers)
+[GIN-debug] GET    /user/refreshHandler      --> project/controller.Controller.RefreshHandler-fm (4 handlers)
+[GIN-debug] POST   /item/createitem          --> project/controller.Controller.CreateItem-fm (4 handlers)
+[GIN-debug] POST   /item/createware          --> project/controller.Controller.CreateWarehouser-fm (4 handlers)
+[GIN-debug] POST   /item/createinb           --> project/controller.Controller.CreateInboundRecord-fm (4 handlers)
+[GIN-debug] POST   /item/createoutb          --> project/controller.Controller.CreateOutboundRecord-fm (4 handlers)
+[GIN-debug] POST   /item/deleteitem          --> project/controller.Controller.DeleteItem-fm (4 handlers)
+[GIN-debug] POST   /item/deleteware          --> project/controller.Controller.DeleteWarehouse-fm (4 handlers)
+[GIN-debug] POST   /item/getitem             --> project/controller.Controller.FindItem-fm (4 handlers)
+[GIN-debug] POST   /item/getware             --> project/controller.Controller.FindWarehouse-fm (4 handlers)
+[GIN-debug] POST   /item/getinb              --> project/controller.Controller.FindInboundRecord-fm (4 handlers)
+[GIN-debug] POST   /item/getoutb             --> project/controller.Controller.FindOutboundRecord-fm (4 handlers)
+[GIN-debug] POST   /item/getinven            --> project/controller.Controller.FindInventory-fm (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8088

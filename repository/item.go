@@ -4,6 +4,8 @@ import (
 	"errors"
 	"gorm.io/gorm"
 	"project/domain"
+	"project/pkg/logger"
+	"project/repository/cache"
 )
 
 type Item interface {
@@ -14,17 +16,17 @@ type Item interface {
 	DeleteItem(item domain.Item) error
 	DeleteWarehouse(warehouse domain.Warehouse) error
 	FindWarehouse() ([]domain.Warehouse, error)
-	FindItem() ([]domain.Item, error)
-	FindInventory() ([]domain.Inventory, error)
-	FindInboundRecord() ([]domain.InboundRecord, error)
-	FindOutboundRecord() ([]domain.OutboundRecord, error)
 	FindWarehouseById(wareid uint) (domain.Warehouse, error)
+	FindItem() ([]domain.Item, error)
 	FindItemById(itemid uint) (domain.Item, error)
+	FindInventory() ([]domain.Inventory, error)
 	FindInventoryByWarehouseId(wareid uint) ([]domain.Inventory, error)
 	FindInventoryByItemId(itemid uint) ([]domain.Inventory, error)
 	FindInventoryByWarehouseIdAndItemId(wareid, itemid uint) (domain.Inventory, error)
+	FindInboundRecord() ([]domain.InboundRecord, error)
 	FindInboundRecordByWarehouseId(wareid uint) ([]domain.InboundRecord, error)
 	FindInboundRecordByWarehouseIdAndItemId(wareid, itemid uint) ([]domain.InboundRecord, error)
+	FindOutboundRecord() ([]domain.OutboundRecord, error)
 	FindOutboundRecordByWarehouseId(wareid uint) ([]domain.OutboundRecord, error)
 	FindOutboundRecordByWarehouseIdAndItemId(wareid, itemid uint) ([]domain.OutboundRecord, error)
 }
@@ -76,12 +78,46 @@ func (repo *CachedDaoRepository) DeleteWarehouse(warehouse domain.Warehouse) err
 }
 
 func (repo *CachedDaoRepository) FindWarehouse() ([]domain.Warehouse, error) {
-	ware, err := repo.dao.GetWarehouse()
-	return ware, err
+	w, err := repo.cache.GetWarehouse()
+	if err == nil {
+		return w, err
+	}
+	if err != cache.ErrKeyNotExists {
+		repo.l.Error("访问Redis失败，查询货物缓存", logger.Error(err), logger.Any("warehouse", "warehouse"))
+	}
+	warehouse, err := repo.dao.GetWarehouse()
+	if err != nil {
+		return nil, err
+	}
+	//异步回写
+	go func() {
+		err := repo.cache.SetWarehouse(warehouse)
+		if err != nil {
+			repo.l.Error("User回写失败", logger.Error(err), logger.Any("warehosue", warehouse))
+		}
+	}()
+	return warehouse, err
 }
 
 func (repo *CachedDaoRepository) FindItem() ([]domain.Item, error) {
+	i, err := repo.cache.GetItem()
+	if err == nil {
+		return i, err
+	}
+	if err != cache.ErrKeyNotExists {
+		repo.l.Error("访问Redis失败，查询货物缓存", logger.Error(err), logger.Any("item", "item"))
+	}
 	item, err := repo.dao.GetItem()
+	if err != nil {
+		return []domain.Item{}, err
+	}
+	//异步回写
+	go func() {
+		err := repo.cache.SetItem(item)
+		if err != nil {
+			repo.l.Error("User回写失败", logger.Error(err), logger.Any("item", item))
+		}
+	}()
 	return item, err
 }
 
