@@ -186,7 +186,7 @@ func (s *controller) LoginUser(c *gin.Context) {
 		response.FailMsg(c, "获取用户信息失败")
 		return
 	}
-	fmt.Println(user)
+
 	u, err := s.ser.GetUserByName(user.Name)
 	if err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -199,8 +199,6 @@ func (s *controller) LoginUser(c *gin.Context) {
 			return
 		}
 	}
-	fmt.Println(u.Password)
-	fmt.Println(user.Password)
 
 	err = bcrypt.CompareHashAndPassword([]byte(u.Password), []byte(user.Password))
 	if err != nil {
@@ -214,7 +212,10 @@ func (s *controller) LoginUser(c *gin.Context) {
 	} else {
 		c.Header("Authorization", token)
 
-		response.Ok(c)
+		response.OkWithData(c, gin.H{
+			"token":      token,
+			"permission": u.Permission,
+		})
 		return
 	}
 }

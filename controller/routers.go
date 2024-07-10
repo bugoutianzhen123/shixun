@@ -24,7 +24,7 @@ func (cont *service) InitServer() error {
 	r.Use(cors.New(cors.Config{
 		AllowOrigins:     []string{"http://localhost:63342"}, // 允许前端地址
 		AllowMethods:     []string{"GET", "POST"},
-		AllowHeaders:     []string{"Origin", "Content-Type"},
+		AllowHeaders:     []string{"Origin", "Content-Type", "Authorization"},
 		ExposeHeaders:    []string{"Content-Length"},
 		AllowCredentials: true,
 	}))

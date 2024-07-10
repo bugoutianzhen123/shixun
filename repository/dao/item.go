@@ -60,7 +60,7 @@ func (dao *GORMDAO) CreateInboundRecord(In domain.InboundRecord) error {
 			return err
 		}
 
-		if err := tx.Model(&domain.Item{}).Where("Item_ID = ?", In.ItemId).Update("Total_Number", gorm.Expr("total_number + ?", In.Number)).Error; err != nil {
+		if err := tx.Model(&domain.Item{}).Where("ID = ?", In.ItemId).Update("Total_Number", gorm.Expr("total_number + ?", In.Number)).Error; err != nil {
 			return err
 		}
 		// 返回 nil 提交事务
@@ -81,7 +81,7 @@ func (dao *GORMDAO) CreateOutboundRecord(Out domain.OutboundRecord) error {
 			return err
 		}
 
-		if err := tx.Model(&domain.Item{}).Where("Item_ID = ?", Out.ItemId).Update("Total_Number", gorm.Expr("total_number - ?", Out.Number)).Error; err != nil {
+		if err := tx.Model(&domain.Item{}).Where("ID = ?", Out.ItemId).Update("Total_Number", gorm.Expr("total_number - ?", Out.Number)).Error; err != nil {
 			return err
 		}
 		// 返回 nil 提交事务
@@ -151,7 +151,7 @@ func (dao *GORMDAO) GetInventoryOfItemId(itemId uint) ([]domain.Inventory, error
 
 func (dao *GORMDAO) GetInventoryOfWarehouseIdAndItemId(warehouseid uint, itemid uint) (domain.Inventory, error) {
 	var inventories domain.Inventory
-	err := dao.db.Preload("Item").Where("Warehouse_id = ? and Item_Id = ?", warehouseid, itemid).Find(&inventories).Error
+	err := dao.db.Preload("Item").Preload("Warehouse").Where("warehouse_id = ? and item_id = ?", warehouseid, itemid).First(&inventories).Error
 	return inventories, err
 }
 

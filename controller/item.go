@@ -78,7 +78,7 @@ func (s *controller) CreateWarehouser(c *gin.Context) {
 		return
 	}
 
-	response.Ok(c)
+	response.OkData(c, warehouse)
 	return
 }
 
@@ -98,6 +98,11 @@ func (s *controller) CreateInboundRecord(c *gin.Context) {
 	var in domain.InboundRecord
 	if err := c.ShouldBindJSON(&in); err != nil {
 		response.FailMsg(c, fa)
+		return
+	}
+
+	if in.WarehouseId == 0 || in.ItemId == 0 {
+		response.FailMsg(c, "信息错误")
 		return
 	}
 
@@ -126,6 +131,11 @@ func (s *controller) CreateOutboundRecord(c *gin.Context) {
 	var out domain.OutboundRecord
 	if err := c.ShouldBindJSON(&out); err != nil {
 		response.FailMsg(c, fa)
+		return
+	}
+
+	if out.WarehouseId == 0 || out.ItemId == 0 {
+		response.FailMsg(c, "信息错误")
 		return
 	}
 

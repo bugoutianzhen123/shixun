@@ -112,3 +112,11 @@ func FailData(ctx *gin.Context, data any) {
 	}
 	ctx.JSON(http.StatusBadRequest, obj)
 }
+
+func OkWithData(c *gin.Context, data gin.H) {
+	c.JSON(http.StatusOK, gin.H{
+		"code":    http.StatusOK,
+		"message": "成功",
+		"data":    data,
+	})
+}
