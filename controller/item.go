@@ -219,6 +219,7 @@ func (s *controller) DeleteWarehouse(c *gin.Context) {
 		return
 	}
 
+	response.Ok(c)
 	return
 }
 
