@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Inbound Record</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h2>Add Inbound Record</h2>
+<form id="addInboundForm">
+    <label for="warehouseId">Warehouse ID:</label>
+    <input type="number" id="warehouseId" name="warehouseid" required>
+    <br>
+    <label for="itemId">Item ID:</label>
+    <input type="number" id="itemId" name="itemid" required>
+    <br>
+    <label for="inNumber">Number:</label>
+    <input type="number" id="inNumber" name="innumber" required>
+    <br>
+    <button type="submit">Save Inbound Record</button>
+    <button type="button" onclick="cancelAdd()">Cancel</button>
+</form>
+
+<script src="js/addInbound.js"></script>
+</body>
+</html>

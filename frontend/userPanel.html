@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户面板</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1>用户面板</h1>
+<div>
+    <button onclick="logout()">退出登录</button>
+</div>
+<div>
+    <h2>用户信息管理</h2>
+    <button onclick="changeUsername()">更改用户名</button>
+    <button onclick="changePassword()">更改密码</button>
+</div>
+<div>
+    <h2>查询功能</h2>
+    <button onclick="viewWarehouse()">查看仓库</button>
+    <button onclick="viewItem()">查看物品</button>
+    <button onclick="viewInventory()">查看库存</button>
+</div>
+<script src="js/userPanel.js"></script>
+</body>
+</html>

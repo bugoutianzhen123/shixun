@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Inbound Records</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #inboundResults {
+            max-height: 400px; /* 固定高度 */
+            overflow-y: auto; /* 垂直滚动 */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Find Inbound Records</h1>
+</header>
+<main>
+    <label for="inboundWarehouseId">Warehouse ID:</label>
+    <input type="text" id="inboundWarehouseId" name="inboundWarehouseId">
+    <label for="inboundItemId">Item ID:</label>
+    <input type="text" id="inboundItemId" name="inboundItemId">
+    <button onclick="findInboundRecords()">Find Inbound Records</button>
+    <div id="inboundResults">
+        <table id="resultsTable">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Warehouse ID</th>
+                <th>Item ID</th>
+                <th>Number</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+                <th>Item Name</th>
+                <th>Item Created At</th>
+                <th>Item Updated At</th>
+                <th>Item Description</th>
+                <th>Warehouse Name</th>
+                <th>Warehouse Location</th>
+                <th>Warehouse Description</th>
+                <th>Warehouse Created At</th>
+                <th>Warehouse Updated At</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Results will be populated dynamically here -->
+            </tbody>
+        </table>
+    </div>
+</main>
+<script src="js/search.js"></script>
+</body>
+</html>

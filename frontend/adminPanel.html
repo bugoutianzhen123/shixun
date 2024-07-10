@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h2>Admin Panel</h2>
+<div id="warehouseManagement">
+    <h3>Warehouse Management</h3>
+    <button onclick="location.href='add_warehouse.html'">Add Warehouse</button>
+    <button onclick="location.href='delete_warehouse.html'">Delete Warehouse</button>
+    <div id="warehouseList">
+        <!-- Warehouse list will be populated dynamically -->
+    </div>
+</div>
+<br>
+<div id="itemManagement">
+    <h3>Item Management</h3>
+    <button onclick="location.href='add_item.html'">Add Item</button>
+    <button onclick="location.href='delete_item.html'">Delete Item</button>
+    <div id="itemList">
+        <!-- Item list will be populated dynamically -->
+    </div>
+</div>
+<br>
+<div id="inventoryManagement">
+    <h3>Inventory Management</h3>
+    <button onclick="location.href='inbound.html'">Add Inbound Record</button>
+    <button onclick="location.href='outbound.html'">Add Outbound Record</button>
+    <div id="inventoryRecords">
+        <!-- Inventory records will be populated dynamically -->
+    </div>
+</div>
+
+
+<button onclick="location.href='search.html'">Search</button>
+
+<!-- Change Username Button -->
+<button onclick="location.href='change_username.html'">Change Username</button>
+
+<!-- Change Password Button -->
+<button onclick="location.href='change_password.html'">Change Password</button>
+
+<script src="js/adminPanel.js"></script>
+</body>
+</html>
