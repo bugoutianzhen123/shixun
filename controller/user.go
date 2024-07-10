@@ -32,7 +32,7 @@ type usermsg struct {
 func (s *controller) CreateUser(c *gin.Context) {
 	var user domain.User
 	if err := c.ShouldBindJSON(&user); err != nil {
-		response.FailMsg(c, "获取用户信息失败")
+		response.FailMsg(c, "获取用户信息失败/用户信息出错")
 		return
 	}
 

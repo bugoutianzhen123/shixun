@@ -36,6 +36,7 @@ type InboundRecord struct {
 	WarehouseId uint      `json:"warehouseid"`
 	ItemId      uint      `json:"itemid"`
 	Number      int       `json:"innumber"`
+	Description string    `json:"indescription"`
 	Item        Item      `gorm:"foreignKey:ItemId;references:ID"`
 	Warehouse   Warehouse `gorm:"foreignKey:WarehouseId;references:ID"`
 }
@@ -46,6 +47,7 @@ type OutboundRecord struct {
 	WarehouseId uint      `json:"warehouseid"`
 	ItemId      uint      `json:"itemid"`
 	Number      int       `json:"outnumber"`
+	Description string    `json:"outdescription"`
 	Item        Item      `gorm:"foreignKey:ItemId;references:ID"`
 	Warehouse   Warehouse `gorm:"foreignKey:WarehouseId;references:ID"`
 }

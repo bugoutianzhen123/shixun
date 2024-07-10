@@ -77,6 +77,9 @@ func (s *controller) CreateWarehouser(c *gin.Context) {
 		response.FailMsg(c, fc)
 		return
 	}
+
+	response.Ok(c)
+	return
 }
 
 func (s *controller) CreateInboundRecord(c *gin.Context) {
@@ -130,6 +133,9 @@ func (s *controller) CreateOutboundRecord(c *gin.Context) {
 		response.FailMsg(c, fc)
 		return
 	}
+
+	response.Ok(c)
+	return
 }
 
 func (s *controller) DeleteItem(c *gin.Context) {

@@ -91,7 +91,7 @@ func Fail(ctx *gin.Context) {
 		"code":    FAIL,
 		"message": "操作失败",
 	}
-	ctx.JSON(http.StatusOK, obj)
+	ctx.JSON(http.StatusBadRequest, obj)
 }
 
 // 携带消息的失败响应
@@ -100,7 +100,7 @@ func FailMsg(ctx *gin.Context, message string) {
 		"code":    FAIL,
 		"message": message,
 	}
-	ctx.JSON(http.StatusOK, obj)
+	ctx.JSON(http.StatusBadRequest, obj)
 }
 
 // 携带数据的失败响应
@@ -110,5 +110,5 @@ func FailData(ctx *gin.Context, data any) {
 		"message": "操作失败",
 		"data":    data,
 	}
-	ctx.JSON(http.StatusOK, obj)
+	ctx.JSON(http.StatusBadRequest, obj)
 }
