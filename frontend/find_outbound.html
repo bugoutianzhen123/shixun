@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Outbound Records</title>
+    <link rel="stylesheet" href="css/find_outbound.css">
+    <style>
+        #outboundResults {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <h1>Find Outbound Records</h1>
+    <label for="outboundWarehouseId">Warehouse ID:</label>
+    <input type="text" id="outboundWarehouseId" name="outboundWarehouseId">
+    <label for="outboundItemId">Item ID:</label>
+    <input type="text" id="outboundItemId" name="outboundItemId">
+    <button onclick="findOutboundRecords()">Find Outbound Records</button>
+    <div id="outboundResults">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Warehouse ID</th>
+                <th>Item ID</th>
+                <th>Number</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</main>
+<script src="js/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Item</title>
+    <link rel="stylesheet" href="css/find_item.css">
+</head>
+<body>
+<main>
+    <h1>Find Item</h1>
+    <label for="itemId">Item ID:</label>
+    <input type="text" id="itemId" name="itemId">
+    <button onclick="findItem()">Find Item</button>
+    <div id="itemResults">
+        <table id="resultsTable">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Item Name</th>
+                <th>Total Number</th>
+                <th>Item Description</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Results will be populated dynamically here -->
+            </tbody>
+        </table>
+    </div>
+</main>
+<script src="js/search.js"></script>
+</body>
+</html>

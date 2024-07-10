@@ -6,13 +6,18 @@ import (
 )
 
 type Page interface {
-	Login(c *gin.Context)
+	LoginH(c *gin.Context)
+	AdminPanel(c *gin.Context)
 }
 
 type page struct{}
 
-func (p *page) Login(c *gin.Context) {
+func (p *page) LoginH(c *gin.Context) {
 	c.HTML(http.StatusOK, "login.html", gin.H{})
+}
+
+func (p *page) AdminPanel(c *gin.Context) {
+	c.HTML(http.StatusOK, "adminPanel.html", gin.H{})
 }
 
 func NewPage() Page {

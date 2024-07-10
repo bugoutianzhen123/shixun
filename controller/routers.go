@@ -29,11 +29,14 @@ func (cont *service) InitServer() error {
 		AllowCredentials: true,
 	}))
 
-	r.LoadHTMLGlob("frontend/*")
+	r.LoadHTMLGlob("frontend/*.html")
+	r.Static("/page/css", "./frontend/css")
+	r.Static("/page/js", "./frontend/js")
 
 	HtmlGroup := r.Group("/page")
 	{
-		HtmlGroup.GET("/login", cont.p.Login)
+		HtmlGroup.GET("/login", cont.p.LoginH)
+		HtmlGroup.GET("/adminpanel", cont.p.AdminPanel)
 	}
 
 	UserGroup := r.Group("/user")
