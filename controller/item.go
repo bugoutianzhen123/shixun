@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"project/domain"
 	lojwt "project/pkg/jwt"
@@ -42,8 +43,11 @@ func (s *controller) CreateItem(c *gin.Context) {
 	var item domain.Item
 	if err := c.ShouldBindJSON(&item); err != nil {
 		response.FailMsg(c, "解析失败")
+		fmt.Println("JSON解析失败:", err)
 		return
 	}
+
+	fmt.Printf("接收到的物品数据: %+v\n", item)
 
 	if err := s.ser.CreateItem(item); err != nil {
 		response.FailMsg(c, "创建失败")
@@ -70,66 +74,97 @@ func (s *controller) CreateWarehouser(c *gin.Context) {
 	var warehouse domain.Warehouse
 	if err := c.ShouldBindJSON(&warehouse); err != nil {
 		response.FailMsg(c, fa)
+		fmt.Println("JSON解析失败:", err)
 		return
 	}
+
+	fmt.Printf("接收到的仓库数据: %+v\n", warehouse)
 
 	if err := s.ser.CreateWareHouse(warehouse); err != nil {
 		response.FailMsg(c, fc)
 		return
 	}
+
+	// 返回创建的仓库数据
+	response.OkWithData(c, gin.H{
+		"warehouse": warehouse,
+	})
 }
 
 func (s *controller) CreateInboundRecord(c *gin.Context) {
 	tokenStr := c.GetHeader("Authorization")
 	msg, err := lojwt.ParseToken(tokenStr)
 	if err != nil {
-		response.FailMsg(c, fa)
+		response.FailMsg(c, "token解析失败")
 		return
 	}
 
 	if msg.Permission != 0 {
-		response.FailMsg(c, nop)
+		response.FailMsg(c, "权限不足")
 		return
 	}
 
 	var in domain.InboundRecord
 	if err := c.ShouldBindJSON(&in); err != nil {
-		response.FailMsg(c, fa)
+		fmt.Println("JSON解析失败:", err)
+		response.FailMsg(c, "解析失败")
 		return
 	}
 
+	if in.WarehouseId == 0 || in.ItemId == 0 {
+		response.FailMsg(c, "信息错误")
+		return
+	}
+
+	// 打印解析后的数据
+	fmt.Printf("接收到的入库记录数据: %+v\n", in)
+
 	if err := s.ser.CreateInboundRecord(in); err != nil {
-		response.FailMsg(c, fc)
+		fmt.Println("创建入库记录失败:", err)
+		response.FailMsg(c, "创建失败")
 		return
 	}
 
 	response.Ok(c)
-	return
 }
 
 func (s *controller) CreateOutboundRecord(c *gin.Context) {
 	tokenStr := c.GetHeader("Authorization")
 	msg, err := lojwt.ParseToken(tokenStr)
 	if err != nil {
-		response.FailMsg(c, fa)
+		response.FailMsg(c, "token解析失败")
+		fmt.Printf("token解析失败: %v\n", err)
 		return
 	}
 
 	if msg.Permission != 0 {
-		response.FailMsg(c, nop)
+		response.FailMsg(c, "权限不足")
+		fmt.Println("权限不足")
 		return
 	}
 
 	var out domain.OutboundRecord
 	if err := c.ShouldBindJSON(&out); err != nil {
-		response.FailMsg(c, fa)
+		response.FailMsg(c, "解析失败")
+		fmt.Printf("解析出库记录失败: %v\n", err)
 		return
 	}
 
-	if err := s.ser.CreateOutboundRecord(out); err != nil {
-		response.FailMsg(c, fc)
+	if out.WarehouseId == 0 || out.ItemId == 0 {
+		response.FailMsg(c, "信息错误")
 		return
 	}
+
+	fmt.Printf("接收到的出库记录数据: %+v\n", out)
+
+	if err := s.ser.CreateOutboundRecord(out); err != nil {
+		response.FailMsg(c, "创建失败")
+		fmt.Printf("创建出库记录失败: %v\n", err)
+		return
+	}
+
+	response.Ok(c)
+	fmt.Println("创建出库记录成功")
 }
 
 func (s *controller) DeleteItem(c *gin.Context) {
@@ -184,7 +219,6 @@ func (s *controller) DeleteWarehouse(c *gin.Context) {
 		return
 	}
 
-	response.Ok(c)
 	return
 }
 
@@ -192,24 +226,23 @@ func (s *controller) FindWarehouse(c *gin.Context) {
 	tokenStr := c.GetHeader("Authorization")
 	_, err := lojwt.ParseToken(tokenStr)
 	if err != nil {
-		response.FailMsg(c, fa)
+		response.FailMsg(c, "认证失败")
 		return
 	}
 
-	waremsg := itemmsg{0, 0}
+	var waremsg itemmsg
 	if err := c.ShouldBindJSON(&waremsg); err != nil {
-		response.FailMsg(c, fa)
+		response.FailMsg(c, "解析失败")
 		return
 	}
 
 	warehouses, err := s.ser.FindWarehouse(waremsg.WarehouseId)
 	if err != nil {
-		response.FailMsg(c, fs)
+		response.FailMsg(c, "查找仓库失败")
 		return
 	}
 
 	response.OkData(c, warehouses)
-	return
 }
 
 func (s *controller) FindItem(c *gin.Context) {

@@ -17,6 +17,14 @@ type OkMesData /*[T LoginResp | RegisterResp] */ struct {
 	data    any    `json:"data"`
 }
 
+func OkWithData(c *gin.Context, data gin.H) {
+	c.JSON(http.StatusOK, gin.H{
+		"code":    http.StatusOK,
+		"message": "成功",
+		"data":    data,
+	})
+}
+
 // type OkMes struct {
 // 	code    int
 // 	message string

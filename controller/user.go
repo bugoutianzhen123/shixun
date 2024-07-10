@@ -36,6 +36,13 @@ func (s *controller) CreateUser(c *gin.Context) {
 		return
 	}
 
+	fmt.Printf("Received user data: Name=%s, Password=%s\n", user.Name, user.Password)
+
+	if user.Name == "" || user.Password == "" {
+		response.FailMsg(c, "用户名/密码不能为空")
+		return
+	}
+
 	if _, err := s.ser.GetUserByName(user.Name); err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			// 没有找到匹配的记录
@@ -87,26 +94,38 @@ func (s *controller) GetUserById(c *gin.Context) {
 
 func (s *controller) ChangeUserName(c *gin.Context) {
 	tokenStr := c.GetHeader("Authorization")
+	// 解析 Token
 	msg, err := lojwt.ParseToken(tokenStr)
 	if err != nil {
-		response.FailMsg(c, fa)
+		fmt.Println("Token 解析失败:", err)
+		response.FailMsg(c, "验证失败")
 		return
 	}
 
+	// 绑定请求体
+	var request struct {
+		NewUsername string `json:"newUsername"`
+	}
+
+	if err := c.ShouldBindJSON(&request); err != nil {
+		fmt.Println("解析请求体失败:", err)
+		response.FailMsg(c, "解析失败")
+		return
+	}
+
+	// 准备更新的用户信息
 	var user domain.User
-	if err := c.ShouldBindJSON(&user); err != nil {
-		response.FailMsg(c, "获取用户信息失败")
-		return
-	}
-
 	user.ID = msg.ID
+	user.Name = request.NewUsername
+
+	// 更新用户名
 	if err := s.ser.ChangeUserName(user); err != nil {
+		fmt.Println("更改用户名失败:", err)
 		response.FailMsg(c, "更改失败")
 		return
 	}
 
 	response.Ok(c)
-	return
 }
 
 func (s *controller) ChangeUserPassword(c *gin.Context) {
@@ -181,21 +200,19 @@ func (s *controller) LoginUser(c *gin.Context) {
 		response.FailMsg(c, "获取用户信息失败")
 		return
 	}
-	fmt.Println(user)
+	fmt.Println("Received login request for user:", user)
+
 	u, err := s.ser.GetUserByName(user.Name)
 	if err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
-			// 没有找到匹配的记录
 			response.FailMsg(c, "该用户不存在")
 			return
 		} else {
-			// 其他查询错误
-			response.FailMsg(c, "other")
+			response.FailMsg(c, "其他查询错误")
 			return
 		}
 	}
-	fmt.Println(u.Password)
-	fmt.Println(user.Password)
+	fmt.Println("Retrieved user from DB:", u)
 
 	err = bcrypt.CompareHashAndPassword([]byte(u.Password), []byte(user.Password))
 	if err != nil {
@@ -203,15 +220,19 @@ func (s *controller) LoginUser(c *gin.Context) {
 		return
 	}
 
-	if token, err := lojwt.GenerateToken(u.ID, u.Permission); err != nil {
+	token, err := lojwt.GenerateToken(u.ID, u.Permission)
+	if err != nil {
 		response.FailMsg(c, "token生成失败")
 		return
-	} else {
-		c.Header("Authorization", token)
-
-		response.Ok(c)
-		return
 	}
+
+	c.Header("Authorization", token)
+
+	response.OkWithData(c, gin.H{
+		"token":      token,
+		"permission": u.Permission,
+	})
+	fmt.Println("Returning response with permission:", u.Permission)
 }
 
 func (s *controller) RefreshHandler(c *gin.Context) {

@@ -14,6 +14,7 @@ type ServiceStart interface {
 
 type service struct {
 	con Controller
+	p   Page
 }
 
 func (cont *service) InitServer() error {
@@ -23,10 +24,17 @@ func (cont *service) InitServer() error {
 	r.Use(cors.New(cors.Config{
 		AllowOrigins:     []string{"http://localhost:63342"}, // 允许前端地址
 		AllowMethods:     []string{"GET", "POST"},
-		AllowHeaders:     []string{"Origin", "Content-Type"},
+		AllowHeaders:     []string{"Origin", "Content-Type", "Authorization"},
 		ExposeHeaders:    []string{"Content-Length"},
 		AllowCredentials: true,
 	}))
+
+	r.LoadHTMLGlob("frontend/*")
+
+	HtmlGroup := r.Group("/page")
+	{
+		HtmlGroup.GET("/login", cont.p.Login)
+	}
 
 	UserGroup := r.Group("/user")
 	{
@@ -58,8 +66,8 @@ func (cont *service) InitServer() error {
 	return err
 }
 
-func NewService(con Controller) ServiceStart {
-	return &service{con: con}
+func NewService(con Controller, p Page) ServiceStart {
+	return &service{con: con, p: p}
 }
 
 func initlog(r *gin.Engine) {

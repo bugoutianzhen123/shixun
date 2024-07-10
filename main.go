@@ -37,7 +37,8 @@ func StartServer() {
 	repo := repository.NewCachedUserRepository(cache, dao, log)
 	ser := server.NewServer(repo)
 	con := controller.NewContrpller(ser, log)
-	service := controller.NewService(con)
+	p := controller.NewPage()
+	service := controller.NewService(con, p)
 
 	if err := service.InitServer(); err != nil {
 		panic(err)
