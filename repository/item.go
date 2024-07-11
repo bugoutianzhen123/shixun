@@ -17,8 +17,10 @@ type Item interface {
 	DeleteWarehouse(warehouse domain.Warehouse) error
 	FindWarehouse() ([]domain.Warehouse, error)
 	FindWarehouseById(wareid uint) (domain.Warehouse, error)
+	FindWarehouseByName(warename string) ([]domain.Warehouse, error)
 	FindItem() ([]domain.Item, error)
 	FindItemById(itemid uint) (domain.Item, error)
+	FindItemByName(itemname string) ([]domain.Item, error)
 	FindInventory() ([]domain.Inventory, error)
 	FindInventoryByWarehouseId(wareid uint) ([]domain.Inventory, error)
 	FindInventoryByItemId(itemid uint) ([]domain.Inventory, error)
@@ -141,9 +143,19 @@ func (repo *CachedDaoRepository) FindWarehouseById(wareid uint) (domain.Warehous
 	return ware, err
 }
 
+func (repo *CachedDaoRepository) FindWarehouseByName(warename string) ([]domain.Warehouse, error) {
+	wares, err := repo.dao.GetWarehouseByName(warename)
+	return wares, err
+}
+
 func (repo *CachedDaoRepository) FindItemById(itemid uint) (domain.Item, error) {
 	item, err := repo.dao.GetItemById(itemid)
 	return item, err
+}
+
+func (repo *CachedDaoRepository) FindItemByName(itemname string) ([]domain.Item, error) {
+	items, err := repo.dao.GetItemByName(itemname)
+	return items, err
 }
 
 func (repo *CachedDaoRepository) FindInventoryByWarehouseId(wareid uint) ([]domain.Inventory, error) {

@@ -22,8 +22,10 @@ type Item interface {
 }
 
 type itemmsg struct {
-	ItemId      uint `json:"itemid"`
-	WarehouseId uint `json:"warehouseid"`
+	ItemId        uint   `json:"itemid"`
+	WarehouseId   uint   `json:"warehouseid"`
+	ItemName      string `json:"itemname"`
+	WarehouseName string `json:"warehousename"`
 }
 
 func (s *controller) CreateItem(c *gin.Context) {
@@ -212,13 +214,13 @@ func (s *controller) FindWarehouse(c *gin.Context) {
 		return
 	}
 
-	waremsg := itemmsg{0, 0}
+	waremsg := itemmsg{0, 0, "", ""}
 	if err := c.ShouldBindJSON(&waremsg); err != nil {
 		response.FailMsg(c, fa)
 		return
 	}
 
-	warehouses, err := s.ser.FindWarehouse(waremsg.WarehouseId)
+	warehouses, err := s.ser.FindWarehouse(waremsg.WarehouseId, waremsg.WarehouseName)
 	if err != nil {
 		response.FailMsg(c, fs)
 		return
@@ -236,13 +238,13 @@ func (s *controller) FindItem(c *gin.Context) {
 		return
 	}
 
-	msg := itemmsg{0, 0}
+	msg := itemmsg{0, 0, "", ""}
 	if err := c.ShouldBindJSON(&msg); err != nil {
 		response.FailMsg(c, fa)
 		return
 	}
 
-	items, err := s.ser.FindItem(msg.ItemId)
+	items, err := s.ser.FindItem(msg.ItemId, msg.ItemName)
 	if err != nil {
 		response.FailMsg(c, fs)
 		return
@@ -260,7 +262,7 @@ func (s *controller) FindInventory(c *gin.Context) {
 		return
 	}
 
-	msg := itemmsg{0, 0}
+	msg := itemmsg{0, 0, "", ""}
 	if err := c.ShouldBindJSON(&msg); err != nil {
 		response.FailMsg(c, fa)
 		return
@@ -289,7 +291,7 @@ func (s *controller) FindInboundRecord(c *gin.Context) {
 		return
 	}
 
-	msg := itemmsg{0, 0}
+	msg := itemmsg{0, 0, "", ""}
 	if err := c.ShouldBindJSON(&msg); err != nil {
 		response.FailMsg(c, fa)
 		return
@@ -318,7 +320,7 @@ func (s *controller) FindOutboundRecord(c *gin.Context) {
 		return
 	}
 
-	msg := itemmsg{0, 0}
+	msg := itemmsg{0, 0, "", ""}
 	if err := c.ShouldBindJSON(&msg); err != nil {
 		response.FailMsg(c, fa)
 		return

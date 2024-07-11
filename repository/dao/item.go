@@ -15,8 +15,10 @@ type ItemDao interface {
 	CreateOutboundRecord(Out domain.OutboundRecord) error
 	GetWarehouse() ([]domain.Warehouse, error)
 	GetWarehouseById(wareid uint) (domain.Warehouse, error)
+	GetWarehouseByName(warename string) ([]domain.Warehouse, error)
 	GetItem() ([]domain.Item, error)
 	GetItemById(itemId uint) (domain.Item, error)
+	GetItemByName(name string) ([]domain.Item, error)
 	GetInventory() ([]domain.Inventory, error)
 	GetInboundRecord() ([]domain.InboundRecord, error)
 	GetOutboundRecord() ([]domain.OutboundRecord, error)
@@ -107,6 +109,12 @@ func (dao *GORMDAO) GetWarehouseById(wareid uint) (domain.Warehouse, error) {
 	return warehouse, err
 }
 
+func (dao *GORMDAO) GetWarehouseByName(warename string) ([]domain.Warehouse, error) {
+	var warehouses []domain.Warehouse
+	err := dao.db.Model(&warehouses).Where("Name like ?", warename).Find(&warehouses).Error
+	return warehouses, err
+}
+
 func (dao *GORMDAO) GetItem() ([]domain.Item, error) {
 	var item []domain.Item
 	err := dao.db.Find(&item).Error
@@ -117,6 +125,12 @@ func (dao *GORMDAO) GetItemById(itemId uint) (domain.Item, error) {
 	var item domain.Item
 	err := dao.db.First(&item, "Id = ?", itemId).Error
 	return item, err
+}
+
+func (dao *GORMDAO) GetItemByName(name string) ([]domain.Item, error) {
+	var items []domain.Item
+	err := dao.db.Model(&items).Where("Name like ?", "%"+name+"%").Find(&items).Error
+	return items, err
 }
 
 func (dao *GORMDAO) GetInventory() ([]domain.Inventory, error) {

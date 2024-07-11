@@ -9,8 +9,8 @@ type ItemServer interface {
 	CreateOutboundRecord(out domain.OutboundRecord) error
 	DeleteItem(item domain.Item) error
 	DeleteWarehouse(warehouse domain.Warehouse) error
-	FindWarehouse(wareid uint) ([]domain.Warehouse, error)
-	FindItem(itemid uint) ([]domain.Item, error)
+	FindWarehouse(wareid uint, warename string) ([]domain.Warehouse, error)
+	FindItem(itemid uint, itemname string) ([]domain.Item, error)
 	FindInventory(wareid, itemid uint) ([]domain.Inventory, error)
 	FindInboundRecord(wareid, itemid uint) ([]domain.InboundRecord, error)
 	FindOutboundRecord(wareid, itemid uint) ([]domain.OutboundRecord, error)
@@ -46,7 +46,10 @@ func (s *server) DeleteWarehouse(warehouse domain.Warehouse) error {
 	return err
 }
 
-func (s *server) FindWarehouse(wareid uint) ([]domain.Warehouse, error) {
+func (s *server) FindWarehouse(wareid uint, warename string) ([]domain.Warehouse, error) {
+	if warename != "" {
+		return s.rep.FindWarehouseByName(warename)
+	}
 	if wareid != 0 {
 		ware, err := s.rep.FindWarehouseById(wareid)
 		warehouses := make([]domain.Warehouse, 0)
@@ -57,7 +60,10 @@ func (s *server) FindWarehouse(wareid uint) ([]domain.Warehouse, error) {
 	}
 }
 
-func (s *server) FindItem(itemid uint) ([]domain.Item, error) {
+func (s *server) FindItem(itemid uint, itemname string) ([]domain.Item, error) {
+	if itemname != "" {
+		return s.rep.FindItemByName(itemname)
+	}
 	if itemid != 0 {
 		item, err := s.rep.FindItemById(itemid)
 		items := make([]domain.Item, 0)
