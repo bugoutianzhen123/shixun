@@ -25,10 +25,24 @@
 </head>
 <body>
 <main>
-    <h1>Find Warehouse</h1>
-    <label for="warehouseId">Warehouse ID:</label>
-    <input type="text" id="warehouseId" name="warehouseId">
-    <button onclick="findWarehouse()">Find Warehouse</button>
+    <h1>查询仓库</h1>
+    <div>
+        <label>
+            <input type="radio" name="searchType" value="id" checked> 按仓库ID查询
+        </label>
+        <label>
+            <input type="radio" name="searchType" value="name"> 按仓库名查询
+        </label>
+    </div>
+    <div id="searchById">
+        <label for="warehouseId">仓库ID:</label>
+        <input type="text" id="warehouseId" name="warehouseId">
+    </div>
+    <div id="searchByName" style="display: none;">
+        <label for="warehouseName">仓库名:</label>
+        <input type="text" id="warehouseName" name="warehouseName">
+    </div>
+    <button onclick="findWarehouse()">查询</button>
     <div id="warehouseResults">
         <table>
             <thead>

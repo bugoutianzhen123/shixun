@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8cbad2df-6117-4f09-9386-c0fd79cc2135" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/../controller/item.go" beforeDir="false" afterPath="$PROJECT_DIR$/../controller/item.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../controller/routers.go" beforeDir="false" afterPath="$PROJECT_DIR$/../controller/routers.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../controller/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../controller/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../repository/dao/item.go" beforeDir="false" afterPath="$PROJECT_DIR$/../repository/dao/item.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../response/response.go" beforeDir="false" afterPath="$PROJECT_DIR$/../response/response.go" afterDir="false" />
-    </list>
+    <list default="true" id="8cbad2df-6117-4f09-9386-c0fd79cc2135" name="更改" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,19 +21,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JavaScript 调试.login.html.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JavaScript 调试.add_item.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript 调试.add_warehouse.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript 调试.adminPanel.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript 调试.change_password.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript 调试.create_inbound_record.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript 调试.create_outbound_record.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript 调试.find_inbound.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript 调试.find_inventory.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript 调试.find_outbound.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript 调试.find_warehouse.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript 调试.login.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript 调试.register.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript 调试.userPanel.html.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kvn\Desktop\frontend\css" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -59,6 +70,12 @@
       <workItem from="1720571785914" duration="197000" />
       <workItem from="1720572002631" duration="8111000" />
       <workItem from="1720593766931" duration="259000" />
+      <workItem from="1720594301731" duration="18000" />
+      <workItem from="1720598815649" duration="12451000" />
+      <workItem from="1720660257590" duration="120000" />
+      <workItem from="1720660387860" duration="9678000" />
+      <workItem from="1720744893370" duration="15943000" />
+      <workItem from="1720799367532" duration="1082000" />
     </task>
     <servers />
   </component>

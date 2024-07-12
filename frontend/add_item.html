@@ -9,18 +9,16 @@
 <body>
 
 <form id="addItemForm">
-    <h2>Add Item</h2>
-    <label for="itemName">Item Name:</label>
+    <h2>添加物品</h2>
+    <label for="itemName">物品名:</label>
     <input type="text" id="itemName" name="itemName" required>
     <br>
-    <label for="itemTotalNumber">Total Number:</label>
-    <input type="number" id="itemTotalNumber" name="itemTotalNumber" required>
-    <br>
-    <label for="itemDescription">Description:</label>
+    <label for="itemDescription">描述:</label>
     <input type="text" id="itemDescription" name="itemDescription" required>
     <br>
-    <button type="submit">Save Item</button>
+    <button type="submit">保存</button>
     <button type="button" onclick="cancelAdd()">Cancel</button>
+    <p id="changePasswordMessage" style="color: red;"></p>
 </form>
 
 <script src="js/addItem.js"></script>

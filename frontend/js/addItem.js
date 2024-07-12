@@ -4,11 +4,10 @@ document.getElementById("addItemForm").addEventListener("submit", function(event
     let formData = new FormData(this);
     let data = {
         itemname: formData.get("itemName"),
-        totalnumber: formData.get("itemTotalNumber"),
         itemdescription: formData.get("itemDescription")
     };
 
-    console.log('发送的数据:', data); // 添加调试信息
+    console.log('发送的数据:', data); // 调试信息
 
     fetch('http://localhost:8088/item/createitem', {
         method: 'POST',
@@ -20,8 +19,8 @@ document.getElementById("addItemForm").addEventListener("submit", function(event
     })
         .then(response => response.json())
         .then(data => {
-            console.log('服务器响应:', data); // 添加调试信息
-            if (data.success) {
+            console.log('服务器响应:', data); // 调试信息
+            if (data.code === 200) {
                 alert('Item added successfully!');
                 window.location.href = 'adminPanel.html';
             } else {

@@ -28,6 +28,15 @@ body::before {
     opacity: 0.3;
 }
 
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 h2 {
     text-align: center;
     color: #333;

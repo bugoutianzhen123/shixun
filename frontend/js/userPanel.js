@@ -1,27 +1,19 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Fetch user information
-    fetch('http://localhost:8088/user/getinfo', {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
-    })
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('username').textContent = data.username;
-            document.getElementById('permission').textContent = data.permission;
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Error fetching user information.');
-        });
-});
+// Add warehouse form handling
+function showAddWarehouseForm() {
+    document.getElementById('addWarehouseForm').style.display = 'block';
+}
 
-// Change password
-document.getElementById("changePasswordForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    let formData = new FormData(this);
-    fetch('http://localhost:8088/user/changepassword', {
+function hideAddWarehouseForm() {
+    document.getElementById('addWarehouseForm').style.display = 'none';
+}
+
+function addWarehouse() {
+    let formData = new FormData();
+    formData.append('warehouseName', document.getElementById('warehouseName').value);
+    formData.append('warehouseLocation', document.getElementById('warehouseLocation').value);
+    formData.append('warehouseDescription', document.getElementById('warehouseDescription').value);
+
+    fetch('http://localhost:8088/item/createware', {
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -31,22 +23,36 @@ document.getElementById("changePasswordForm").addEventListener("submit", functio
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                alert('Password changed successfully!');
+                alert('Warehouse added successfully!');
+                // Reload warehouse list or update UI as needed
             } else {
-                alert('Failed to change password.');
+                alert('Failed to add warehouse.');
             }
+            hideAddWarehouseForm();
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('Error changing password.');
+            alert('Error adding warehouse.');
+            hideAddWarehouseForm();
         });
-});
+}
 
-// Change username
-document.getElementById("changeUsernameForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    let formData = new FormData(this);
-    fetch('http://localhost:8088/user/changeusername', {
+// Add item form handling
+function showAddItemForm() {
+    document.getElementById('addItemForm').style.display = 'block';
+}
+
+function hideAddItemForm() {
+    document.getElementById('addItemForm').style.display = 'none';
+}
+
+function addItem() {
+    let formData = new FormData();
+    formData.append('itemName', document.getElementById('itemName').value);
+    formData.append('itemDescription', document.getElementById('itemDescription').value);
+    formData.append('itemTotalNumber', document.getElementById('itemTotalNumber').value);
+
+    fetch('http://localhost:8088/item/createitem', {
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -56,14 +62,16 @@ document.getElementById("changeUsernameForm").addEventListener("submit", functio
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                alert('Username changed successfully!');
-                document.getElementById('username').textContent = formData.get('newUsername');
+                alert('Item added successfully!');
+                // Reload item list or update UI as needed
             } else {
-                alert('Failed to change username.');
+                alert('Failed to add item.');
             }
+            hideAddItemForm();
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('Error changing username.');
+            alert('Error adding item.');
+            hideAddItemForm();
         });
-});
+}

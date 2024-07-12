@@ -90,3 +90,8 @@ form button:active {
         transform: rotate(360deg);
     }
 }
+
+#changePasswordMessage {
+    text-align: center;
+    margin-top: 10px;
+}

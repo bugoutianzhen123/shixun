@@ -6,7 +6,7 @@
     <title>Find Inventory Records</title>
     <link rel="stylesheet" href="css/find_inventory.css">
     <style>
-        #inboundResults {
+        #inventoryResults {
             max-height: 400px;
             overflow-y: auto;
         }
@@ -25,14 +25,14 @@
 </head>
 <body>
 <main>
-    <h1>Find Inventory Records</h1>
-    <label for="inventoryWarehouseId">Warehouse ID:</label>
+    <h1>查询库存</h1>
+    <label for="inventoryWarehouseId">仓库ID:</label>
     <input type="text" id="inventoryWarehouseId" name="inventoryWarehouseId">
     <br>
-    <label for="inventoryItemId">Item ID:</label>
+    <label for="inventoryItemId">物品ID:</label>
     <input type="text" id="inventoryItemId" name="inventoryItemId">
     <br>
-    <button onclick="findInventory()">Find Inventory Records</button>
+    <button onclick="findInventory()">查询</button>
     <div id="inventoryResults">
         <table id="resultsTable">
             <thead>
@@ -40,6 +40,7 @@
                 <th>ID</th>
                 <th>Warehouse ID</th>
                 <th>Item ID</th>
+
                 <th>Number</th>
                 <th>Created At</th>
                 <th>Updated At</th>

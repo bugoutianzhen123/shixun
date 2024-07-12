@@ -8,7 +8,7 @@ document.getElementById("outboundRecordForm").addEventListener("submit", functio
         warehouseId: formData.get("warehouseId")
     };
 
-    fetch('http://localhost:8088/outbound/create', {
+    fetch('http://localhost:8088/item/createoutb', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

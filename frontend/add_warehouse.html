@@ -9,20 +9,20 @@
 <body>
 
 <form id="addWarehouseForm">
-    <h2>Add Warehouse</h2>
-    <label for="warehouseName">Name:</label>
+    <h2>添加仓库</h2>
+    <label for="warehouseName">仓库名:</label>
     <input type="text" id="warehouseName" name="warehouseName" required>
     <br>
-    <label for="warehouseLocation">Location:</label>
+    <label for="warehouseLocation">地点:</label>
     <input type="text" id="warehouseLocation" name="warehouseLocation" required>
     <br>
-    <label for="warehouseDescription">Description:</label>
+    <label for="warehouseDescription">描述:</label>
     <input type="text" id="warehouseDescription" name="warehouseDescription" required>
     <br>
-    <button type="submit">Save Warehouse</button>
+    <button type="submit">保存</button>
     <button type="button" onclick="cancelAdd()">Cancel</button>
+    <p id="changePasswordMessage" style="color: red;"></p>
 </form>
-
 <script src="js/addWarehouse.js"></script>
 </body>
 </html>

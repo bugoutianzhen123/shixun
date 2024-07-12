@@ -32,9 +32,9 @@ loginForm.addEventListener('submit', function(event) {
                 localStorage.setItem('token', data.data.token);
 
                 if (data.data.permission === 1) {
-                    window.location.href = 'http://localhost:63342/code/html/frontend/userPanel.html';
+                    window.location.href = 'userPanel.html';
                 } else if (data.data.permission === 0) {
-                    window.location.href = 'http://localhost:63342/code/html/frontend/adminPanel.html';
+                    window.location.href = 'adminPanel.html';
                 } else {
                     console.error('未知权限');
                 }

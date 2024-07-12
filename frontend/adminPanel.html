@@ -7,42 +7,39 @@
     <link rel="stylesheet" href="css/adminPanel.css">
 </head>
 <body>
-<h2>Admin Panel</h2>
+<h2>管理员面板</h2>
 <div id="warehouseManagement">
-    <h3>Warehouse Management</h3>
-    <button onclick="location.href='add_warehouse.html'">Add Warehouse</button>
-    <button onclick="location.href='delete_warehouse.html'">Delete Warehouse</button>
+    <h3>仓库</h3>
+    <button onclick="location.href='add_warehouse.html'">添加仓库</button>
+    <button onclick="location.href='delete_warehouse.html'">删除仓库</button>
     <div id="warehouseList">
         <!-- Warehouse list will be populated dynamically -->
     </div>
 </div>
 <br>
 <div id="itemManagement">
-    <h3>Item Management</h3>
-    <button onclick="location.href='add_item.html'">Add Item</button>
-    <button onclick="location.href='delete_item.html'">Delete Item</button>
+    <h3>物品</h3>
+    <button onclick="location.href='add_item.html'">添加物品</button>
+    <button onclick="location.href='delete_item.html'">删除物品</button>
     <div id="itemList">
         <!-- Item list will be populated dynamically -->
     </div>
 </div>
 <br>
 <div id="inventoryManagement">
-    <h3>Inventory Management</h3>
-    <button onclick="location.href='inbound.html'">Add Inbound Record</button>
-    <button onclick="location.href='outbound.html'">Add Outbound Record</button>
+    <h3>出入库</h3>
+    <button onclick="location.href='inbound.html'">入库</button>
+    <button onclick="location.href='outbound.html'">出库</button>
     <div id="inventoryRecords">
         <!-- Inventory records will be populated dynamically -->
     </div>
 </div>
 
-<button onclick="location.href='search.html'">Search</button>
-
-<!-- Change Username Button -->
-<button onclick="location.href='change_username.html'">Change Username</button>
-
-<!-- Change Password Button -->
-<button onclick="location.href='change_password.html'">Change Password</button>
-
+<div id="actionButtons">
+    <button onclick="location.href='search.html'">查询</button>
+    <button onclick="location.href='change_username.html'">更改用户名</button>
+    <button onclick="location.href='change_password.html'">更改密码</button>
+</div>
 <script src="js/adminPanel.js"></script>
 </body>
 </html>

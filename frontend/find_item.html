@@ -5,13 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find Item</title>
     <link rel="stylesheet" href="css/find_item.css">
+    <style>
+        #itemResults {
+            max-height: 400px; /* 固定高度 */
+            overflow-y: auto; /* 垂直滚动 */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
 <main>
-    <h1>Find Item</h1>
-    <label for="itemId">Item ID:</label>
-    <input type="text" id="itemId" name="itemId">
-    <button onclick="findItem()">Find Item</button>
+    <h1>查询物品</h1>
+    <div>
+        <label>
+            <input type="radio" name="searchType" value="id" checked> 按物品ID查询
+        </label>
+        <label>
+            <input type="radio" name="searchType" value="name"> 按物品名查询
+        </label>
+    </div>
+    <div id="searchById">
+        <label for="itemId">物品ID:</label>
+        <input type="text" id="itemId" name="itemId">
+    </div>
+    <div id="searchByName" style="display: none;">
+        <label for="itemName">物品名:</label>
+        <input type="text" id="itemName" name="itemName">
+    </div>
+    <button onclick="findItem()">查询</button>
     <div id="itemResults">
         <table id="resultsTable">
             <thead>

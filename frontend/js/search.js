@@ -20,17 +20,47 @@ function displayResults(containerId, results) {
             <td>${record.warehouseid || ''}</td>
             <td>${record.itemid || ''}</td>
             <td>${record.Number || ''}</td>
+            <td>${record.innumber || ''}</td>
             <td>${record.CreatedAt || ''}</td>
             <td>${record.UpdatedAt || ''}</td>
             <td>${record.Item ? record.Item.itemname || '' : ''}</td>
             <td>${record.Item ? record.Item.CreatedAt || '' : ''}</td>
             <td>${record.Item ? record.Item.UpdatedAt || '' : ''}</td>
             <td>${record.Item ? record.Item.itemdescription || '' : ''}</td>
-            <td>${record.Warehouse ? record.Warehouse.warehousename || '' : ''}</td>
-            <td>${record.Warehouse ? record.Warehouse.warehouselocation || '' : ''}</td>
-            <td>${record.Warehouse ? record.Warehouse.warehousedescription || '' : ''}</td>
-            <td>${record.Warehouse ? record.Warehouse.CreatedAt || '' : ''}</td>
-            <td>${record.Warehouse ? record.Warehouse.UpdatedAt || '' : ''}</td>
+            <td>${record.warehousename || ''}</td>
+            <td>${record.warehouselocation || ''}</td>
+            <td>${record.warehousedescription || ''}</td>
+            <td>${record.warehouse ? record.warehouse.CreatedAt || '' : ''}</td>
+            <td>${record.warehouse ? record.warehouse.UpdatedAt || '' : ''}</td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+
+function displayinnerResults(containerId, results) {
+    let container = document.getElementById(containerId);
+    if (!container) {
+        console.error(`Element with id ${containerId} not found`);
+        return;
+    }
+
+    let tableBody = container.querySelector('tbody');
+    if (!tableBody) {
+        console.error('Table body element not found');
+        return;
+    }
+
+    tableBody.innerHTML = ''; // Clear previous results
+
+    results.forEach(record => {
+        let row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${record.ID || ''}</td>
+            <td>${record.warehouseid || ''}</td>
+            <td>${record.itemid || ''}</td>
+            <td>${record.innumber || ''}</td>
+            <td>${record.CreatedAt || ''}</td>
+            <td>${record.UpdatedAt || ''}</td>
         `;
         tableBody.appendChild(row);
     });
@@ -66,7 +96,17 @@ function displayItemResults(containerId, results) {
 }
 
 function findItem() {
-    let itemId = document.getElementById('itemId').value;
+    let searchType = document.querySelector('input[name="searchType"]:checked').value;
+    let searchValue;
+    let requestBody;
+
+    if (searchType === "id") {
+        searchValue = document.getElementById('itemId').value;
+        requestBody = { itemid: parseInt(searchValue, 10) };
+    } else {
+        searchValue = document.getElementById('itemName').value;
+        requestBody = { itemname: searchValue };
+    }
 
     fetch('http://localhost:8088/item/getitem', {
         method: 'POST',
@@ -74,7 +114,7 @@ function findItem() {
             'Content-Type': 'application/json',
             'Authorization': localStorage.getItem('token')
         },
-        body: JSON.stringify({ itemid: parseInt(itemId, 10) })
+        body: JSON.stringify(requestBody)
     })
         .then(response => response.json())
         .then(data => {
@@ -119,8 +159,47 @@ function findInventory() {
         .catch(error => console.error('Error:', error));
 }
 
+function displaywarehouseResults(containerId, results) {
+    let container = document.getElementById(containerId);
+    if (!container) {
+        console.error(`Element with id ${containerId} not found`);
+        return;
+    }
+
+    let tableBody = container.querySelector('tbody');
+    if (!tableBody) {
+        console.error('Table body element not found');
+        return;
+    }
+
+    tableBody.innerHTML = ''; // Clear previous results
+
+    results.forEach(record => {
+        let row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${record.ID || ''}</td>
+            <td>${record.warehousename || ''}</td>
+            <td>${record.warehouselocation || ''}</td>
+            <td>${record.warehousedescription || ''}</td>
+            <td>${record.CreatedAt || ''}</td>
+            <td>${record.UpdatedAt || ''}</td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+
 function findWarehouse() {
-    let warehouseId = document.getElementById('warehouseId').value;
+    let searchType = document.querySelector('input[name="searchType"]:checked').value;
+    let searchValue;
+    let requestBody;
+
+    if (searchType === "id") {
+        searchValue = document.getElementById('warehouseId').value;
+        requestBody = { warehouseid: parseInt(searchValue, 10) };
+    } else {
+        searchValue = document.getElementById('warehouseName').value;
+        requestBody = { warehousename: searchValue };
+    }
 
     fetch('http://localhost:8088/item/getware', {
         method: 'POST',
@@ -128,12 +207,12 @@ function findWarehouse() {
             'Content-Type': 'application/json',
             'Authorization': localStorage.getItem('token')
         },
-        body: JSON.stringify({ warehouseid: parseInt(warehouseId, 10) })
+        body: JSON.stringify(requestBody)
     })
         .then(response => response.json())
         .then(data => {
             if (data.code === 200) {
-                displayResults('warehouseResults', data.data);
+                displaywarehouseResults('warehouseResults', data.data);
             } else {
                 console.error('Error:', data.message);
             }
@@ -160,11 +239,11 @@ function findInboundRecords() {
                     ID: record.ID,
                     warehouseid: record.warehouseid,
                     itemid: record.itemid,
-                    Number: record.Number,
+                    innumber: record.innumber,
                     CreatedAt: record.CreatedAt,
                     UpdatedAt: record.UpdatedAt
                 }));
-                displayResults('inboundResults', filteredData);
+                displayinnerResults('inboundResults', filteredData);
             } else {
                 console.error('Error:', data.message);
             }
